@@ -48,3 +48,11 @@ TestResults/
 # NuGet
 *.nupkg
 .nuget/
+
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.vspscc
+*.vssscc
