@@ -69,6 +69,32 @@ namespace turfmanagement.Controllers
 
             return Ok(new { message = "Selected slots marked as Maintenance." });
         }
+
+        [HttpDelete("delete-slot")]
+        public IActionResult DeleteSlot([FromBody] SlotMaintenanceRequest request)
+        {
+            if (request.TimeSlots == null || request.TimeSlots.Count == 0)
+                return BadRequest("No time slots provided.");
+
+            using var conn = _db.GetConnection();
+            conn.Open();
+
+            foreach (var time in request.TimeSlots)
+            {
+                string deleteQuery = @"
+            DELETE FROM Slots
+            WHERE SlotDate = @date AND SlotTime = @time;
+        ";
+
+                using var deleteCmd = new NpgsqlCommand(deleteQuery, conn);
+                deleteCmd.Parameters.AddWithValue("@date", request.Date);
+                deleteCmd.Parameters.AddWithValue("@time", time);
+                deleteCmd.ExecuteNonQuery();
+            }
+
+            return Ok(new { message = "Selected slots deleted successfully." });
+        }
+
     }
 
     public class SlotMaintenanceRequest
