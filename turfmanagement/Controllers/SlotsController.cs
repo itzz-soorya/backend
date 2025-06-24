@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Npgsql;
 using turfmanagement.Connection;
+using System;
+using System.Collections.Generic;
 
 namespace turfmanagement.Controllers
 {
@@ -15,23 +17,27 @@ namespace turfmanagement.Controllers
             _db = db;
         }
 
-        // GET: /api/slots/exceptions
-        [HttpGet("exceptions")]
-        public IActionResult GetUpcomingExceptionSlots()
+        // GET: /api/slots/2025-06-25
+        [HttpGet("{date}")]
+        public IActionResult GetSlotsByDate(string date)
         {
+            if (!DateTime.TryParse(date, out DateTime parsedDate))
+                return BadRequest(new { message = "Invalid date format. Use YYYY-MM-DD" });
+
             var slots = new List<SlotDto>();
 
             using var conn = _db.GetConnection();
             conn.Open();
 
             string query = @"
-        SELECT SlotId, SlotDate, SlotTime, Status
-        FROM Slots
-        WHERE SlotDate >= CURRENT_DATE
-        ORDER BY SlotDate, SlotTime;
-    ";
+                SELECT SlotId, SlotDate, SlotTime, Status
+                FROM Slots
+                WHERE SlotDate = @date
+                ORDER BY SlotTime;
+            ";
 
             using var cmd = new NpgsqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@date", parsedDate);
 
             using var reader = cmd.ExecuteReader();
             while (reader.Read())
@@ -47,7 +53,6 @@ namespace turfmanagement.Controllers
 
             return Ok(slots);
         }
-
     }
 
     public class SlotDto
