@@ -1,4 +1,14 @@
-﻿CREATE TABLE Users (
+﻿
+
+⚠️ Reminder:
+This works only if:
+
+Your SlotTimeFrom and SlotTimeTo are in format like "07:00 AM", "08:00 PM"
+
+
+
+
+CREATE TABLE Users (
     UserId SERIAL PRIMARY KEY,
     PhoneNumber VARCHAR(15) NOT NULL UNIQUE,
     Name VARCHAR(100),
@@ -27,7 +37,6 @@ CREATE TABLE Admin (
     username VARCHAR(50) PRIMARY KEY,
     password VARCHAR(50) NOT NULL
 );
-
 
 
 

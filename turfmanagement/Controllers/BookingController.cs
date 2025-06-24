@@ -24,7 +24,7 @@ namespace turfmanagement.Controllers
 
             try
             {
-                // 1. Insert booking
+                //Insert booking
                 string insertBooking = @"
                 INSERT INTO Bookings (UserId, BookingDate, SlotTimeFrom, SlotTimeTo, Amount)
                 VALUES (@userId, @date, @from, @to, @amount)
@@ -41,7 +41,7 @@ namespace turfmanagement.Controllers
 
                 int bookingId = (int)cmdBooking.ExecuteScalar();
 
-                // 2. Insert each slot into Slots table
+                //Insert each slot into Slots table
                 DateTime from = DateTime.ParseExact(dto.SlotTimeFrom, "hh:mm tt", null);
                 DateTime to = DateTime.ParseExact(dto.SlotTimeTo, "hh:mm tt", null);
 
@@ -61,7 +61,7 @@ namespace turfmanagement.Controllers
                     cmdSlot.ExecuteNonQuery();
                 }
 
-                // 3. Update user's LastBookingDate
+                //  Update user's LastBookingDate
                 string updateUser = @"
                 UPDATE Users
                 SET LastBookingDate = @date
@@ -89,8 +89,8 @@ namespace turfmanagement.Controllers
     {
         public int UserId { get; set; }
         public DateTime BookingDate { get; set; }
-        public string SlotTimeFrom { get; set; }  // e.g., "02:00 PM"
-        public string SlotTimeTo { get; set; }    // e.g., "05:00 PM"
+        public string SlotTimeFrom { get; set; }  // "02:00 PM"
+        public string SlotTimeTo { get; set; }    //  "05:00 PM"
         public decimal Amount { get; set; }
     }
 
