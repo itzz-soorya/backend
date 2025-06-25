@@ -72,6 +72,40 @@ namespace turfmanagement.Controllers
                 phoneNumber = userDto.PhoneNumber
             });
         }
+        [HttpPut("rename")]
+        public IActionResult RenameUser([FromBody] RenameUserRequest request)
+        {
+            using var conn = _db.GetConnection();
+            conn.Open();
+
+            string updateQuery = @"
+        UPDATE Users
+        SET Name = @newName
+        WHERE PhoneNumber = @phoneNumber;
+    ";
+
+            using var cmd = new NpgsqlCommand(updateQuery, conn);
+            cmd.Parameters.AddWithValue("@newName", request.NewName);
+            cmd.Parameters.AddWithValue("@phoneNumber", request.PhoneNumber);
+
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+            if (rowsAffected > 0)
+            {
+                return Ok(new { success = true, message = "User name updated successfully." });
+            }
+            else
+            {
+                return NotFound(new { success = false, message = "User not found for given phone number." });
+            }
+        }
+
+        public class RenameUserRequest
+        {
+            public string PhoneNumber { get; set; }
+            public string NewName { get; set; }
+        }
+
 
     }
 
