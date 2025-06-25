@@ -19,24 +19,42 @@ namespace turfmanagement.Controllers
 
         // GET: /api/adminbooking?date=YYYY-MM-DD
         [HttpGet]
-        public IActionResult GetBookingsByDate([FromQuery] DateTime? date)
+        public IActionResult GetBookingsByStatus([FromQuery] string status)
         {
-            var targetDate = date ?? DateTime.Today;
             var bookings = new List<BookingDisplayDto>();
+            string query = @"
+        SELECT b.BookingDate, u.Name, u.PhoneNumber, b.SlotTimeFrom, b.SlotTimeTo, b.Amount
+        FROM Bookings b
+        JOIN Users u ON b.UserId = u.UserId
+        WHERE {0}
+        ORDER BY b.BookingDate, b.SlotTimeFrom;
+    ";
+
+            string condition;
+            DateTime today = DateTime.Today;
+
+            switch (status?.ToLower())
+            {
+                case "today":
+                    condition = "b.BookingDate = @targetDate";
+                    break;
+                case "past":
+                    condition = "b.BookingDate < @targetDate";
+                    break;
+                case "upcoming":
+                    condition = "b.BookingDate > @targetDate";
+                    break;
+                default:
+                    return BadRequest("Invalid status. Use 'past', 'today', or 'upcoming'.");
+            }
+
+            string finalQuery = string.Format(query, condition);
 
             using var conn = _db.GetConnection();
             conn.Open();
 
-            string query = @"
-                SELECT b.BookingDate, u.Name, u.PhoneNumber, b.SlotTimeFrom, b.SlotTimeTo, b.Amount
-                FROM Bookings b
-                JOIN Users u ON b.UserId = u.UserId
-                WHERE b.BookingDate = @bookingDate
-                ORDER BY b.BookingDate, b.SlotTimeFrom;
-            ";
-
-            using var cmd = new NpgsqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@bookingDate", targetDate);
+            using var cmd = new NpgsqlCommand(finalQuery, conn);
+            cmd.Parameters.AddWithValue("@targetDate", today);
 
             using var reader = cmd.ExecuteReader();
             int count = 1;
@@ -59,6 +77,7 @@ namespace turfmanagement.Controllers
 
             return Ok(bookings);
         }
+
     }
 
     public class BookingDisplayDto
