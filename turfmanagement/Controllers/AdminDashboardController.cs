@@ -11,7 +11,10 @@ namespace turfmanagement.Controllers
     public class AdminDashboardController : ControllerBase
     {
         private readonly DatabaseConnection _db;
-        private static readonly string[] MonthNames = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+        private static readonly string[] MonthNames = {
+            "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        };
         private static readonly string[] Colors = {
             "#FF5733", "#33C1FF", "#FFC300", "#DAF7A6", "#C70039", "#900C3F",
             "#581845", "#4CAF50", "#FF9800", "#3F51B5", "#E91E63", "#795548"
@@ -123,17 +126,16 @@ namespace turfmanagement.Controllers
                     counts[day] = (count, hours);
                 }
 
-                for (int i = 1; i <= 31; i++)
+                // ✅ Dynamic day count for the month
+                int daysInMonth = DateTime.DaysInMonth(year, month);
+                for (int i = 1; i <= daysInMonth; i++)
                 {
-                    if (counts.ContainsKey(i))
+                    result.Add(new DayBookingData
                     {
-                        result.Add(new DayBookingData
-                        {
-                            Day = i,
-                            Bookings = counts[i].count,
-                            Hours = counts[i].hours
-                        });
-                    }
+                        Day = i,
+                        Bookings = counts.ContainsKey(i) ? counts[i].count : 0,
+                        Hours = counts.ContainsKey(i) ? counts[i].hours : 0
+                    });
                 }
             }
             catch (Exception ex)
@@ -173,6 +175,7 @@ namespace turfmanagement.Controllers
             return Ok(summary);
         }
 
+        // DTOs
         public class MonthBookingData
         {
             public string Label { get; set; }  // Jan, Feb, etc.
