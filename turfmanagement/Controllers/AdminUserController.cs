@@ -18,6 +18,7 @@ namespace turfmanagement.Controllers
         }
 
         [HttpGet("details")]
+        
         public IActionResult GetUserDetails()
         {
             var result = new List<UserDetailDto>();

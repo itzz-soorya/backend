@@ -17,7 +17,9 @@ namespace turfmanagement.Controllers
             _db = db;
         }
 
-        [HttpGet("dashboard")]
+        
+         [HttpGet("dashboard")]
+
         public IActionResult GetDashboard()
         {
             using var conn = _db.GetConnection();
@@ -98,3 +100,53 @@ namespace turfmanagement.Controllers
         public string Color { get; set; }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

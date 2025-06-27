@@ -17,6 +17,7 @@ namespace turfmanagement.Controllers
 
         // 1. CREATE: Register new admin
         [HttpPost("register")]
+        
         public IActionResult RegisterAdmin([FromBody] AdminDto admin)
         {
             using var conn = _db.GetConnection();

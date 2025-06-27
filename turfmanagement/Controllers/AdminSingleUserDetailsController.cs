@@ -23,18 +23,14 @@ namespace turfmanagement.Controllers
             using var conn = _db.GetConnection();
             conn.Open();
 
-            // 1. Get user basic info + total bookings + total hours
+            // 1. Get user info + total bookings
             string query = @"
                 SELECT 
                     u.UserId,
                     u.Name,
                     u.PhoneNumber,
                     u.LastBookingDate,
-                    COUNT(b.BookingId) AS TotalBookings,
-                    COALESCE(SUM(
-                        CAST(SPLIT_PART(b.SlotTimeTo, ':', 1) AS INT) - 
-                        CAST(SPLIT_PART(b.SlotTimeFrom, ':', 1) AS INT)
-                    ), 0) AS TotalHours
+                    COUNT(b.BookingId) AS TotalBookings
                 FROM Users u
                 LEFT JOIN Bookings b ON u.UserId = b.UserId
                 WHERE u.PhoneNumber = @phone
@@ -58,57 +54,61 @@ namespace turfmanagement.Controllers
                 PhoneNumber = reader["PhoneNumber"].ToString(),
                 TotalBookings = Convert.ToInt32(reader["TotalBookings"]),
                 LastBooking = lastBookingDate == null ? "N/A" : lastBookingDate.Value.ToString("dd/MM/yyyy"),
-                TotalHours = reader["TotalHours"].ToString() + "Hrs",
                 UpcomingBookings = new List<BookingDto>(),
                 PastBookings = new List<BookingDto>()
             };
             reader.Close();
 
-            // 2. Get upcoming bookings (BookingDate > today)
-            string upcomingQuery = @"
-    SELECT BookingDate, SlotTimeFrom, SlotTimeTo
-    FROM Bookings
-    WHERE TO_TIMESTAMP(BookingDate || ' ' || SlotTimeFrom, 'YYYY-MM-DD hh:mi AM') > NOW()
-    AND UserId = @uid
-    ORDER BY BookingDate;
-";
+            // 2. Get all bookings to separate past/upcoming AND calculate total time
+            string bookingsQuery = @"
+                SELECT BookingDate, SlotTimeFrom, SlotTimeTo
+                FROM Bookings
+                WHERE UserId = @uid
+                ORDER BY BookingDate, SlotTimeFrom;
+            ";
 
-            using var cmdUpcoming = new NpgsqlCommand(upcomingQuery, conn);
-            cmdUpcoming.Parameters.AddWithValue("@uid", userId);
-            using var upReader = cmdUpcoming.ExecuteReader();
-            while (upReader.Read())
+            using var bookingsCmd = new NpgsqlCommand(bookingsQuery, conn);
+            bookingsCmd.Parameters.AddWithValue("@uid", userId);
+
+            using var bookingsReader = bookingsCmd.ExecuteReader();
+            DateTime now = DateTime.Now;
+            int totalMinutes = 0;
+
+            while (bookingsReader.Read())
             {
-                user.UpcomingBookings.Add(new BookingDto
-                {
-                    Date = Convert.ToDateTime(upReader["BookingDate"]).ToString("dd/MM/yyyy"),
-                    TimeFrom = upReader["SlotTimeFrom"].ToString(),
-                    TimeTo = upReader["SlotTimeTo"].ToString()
-                });
-            }
-            upReader.Close();
+                var bookingDate = Convert.ToDateTime(bookingsReader["BookingDate"]);
+                var from = bookingsReader["SlotTimeFrom"].ToString();
+                var to = bookingsReader["SlotTimeTo"].ToString();
 
-            // 3. Get past bookings (BookingDate <= today)
-            string pastQuery = @"
-    SELECT BookingDate, SlotTimeFrom, SlotTimeTo
-    FROM Bookings
-    WHERE TO_TIMESTAMP(BookingDate || ' ' || SlotTimeTo, 'YYYY-MM-DD hh:mi AM') <= NOW()
-    AND UserId = @uid
-    ORDER BY BookingDate DESC;
-";
-
-            using var cmdPast = new NpgsqlCommand(pastQuery, conn);
-            cmdPast.Parameters.AddWithValue("@uid", userId);
-            using var pastReader = cmdPast.ExecuteReader();
-            while (pastReader.Read())
-            {
-                user.PastBookings.Add(new BookingDto
+                var dto = new BookingDto
                 {
-                    Date = Convert.ToDateTime(pastReader["BookingDate"]).ToString("dd/MM/yyyy"),
-                    TimeFrom = pastReader["SlotTimeFrom"].ToString(),
-                    TimeTo = pastReader["SlotTimeTo"].ToString()
-                });
+                    Date = bookingDate.ToString("dd/MM/yyyy"),
+                    TimeFrom = from,
+                    TimeTo = to
+                };
+
+                // Parse start and end times
+                bool validStart = DateTime.TryParse($"{bookingDate:yyyy-MM-dd} {from}", out DateTime startTime);
+                bool validEnd = DateTime.TryParse($"{bookingDate:yyyy-MM-dd} {to}", out DateTime endTime);
+
+                if (validStart && validEnd)
+                {
+                    // Handle overnight slots (e.g. 10 PM – 2 AM next day)
+                    if (endTime <= startTime)
+                        endTime = endTime.AddDays(1);
+
+                    totalMinutes += (int)(endTime - startTime).TotalMinutes;
+
+                    if (endTime <= now)
+                        user.PastBookings.Add(dto);
+                    else if (startTime > now)
+                        user.UpcomingBookings.Add(dto);
+                    // optional: handle ongoing booking if needed
+                }
             }
-            pastReader.Close();
+            bookingsReader.Close();
+
+            user.TotalHours = $"{(totalMinutes / 60)}Hrs";
 
             return Ok(user);
         }

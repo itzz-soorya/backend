@@ -55,6 +55,7 @@ namespace turfmanagement.Controllers
         }
     }
 
+     
     public class SlotDto
     {
         public int SlotId { get; set; }
@@ -63,3 +64,7 @@ namespace turfmanagement.Controllers
         public string Status { get; set; } // 'Unavailable' or 'Maintenance'
     }
 }
+
+
+
+

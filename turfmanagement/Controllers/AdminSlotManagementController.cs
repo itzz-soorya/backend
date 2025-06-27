@@ -52,6 +52,7 @@ namespace turfmanagement.Controllers
                         updateCmd.Parameters.AddWithValue("@time", time);
                         updateCmd.ExecuteNonQuery();
                     }
+                    
                     else
                     {
                         string insertQuery = @"
