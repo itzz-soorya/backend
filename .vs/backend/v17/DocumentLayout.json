@@ -3,6 +3,34 @@
   "WorkspaceRootPath": "D:\\backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\controllers\\admindashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\controllers\\admindashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\db queries\\textfile.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\db queries\\textfile.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\controllers\\adminslotmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\controllers\\adminslotmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -11,28 +39,12 @@
       "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\turfmanagement.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\controllers\\admindashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\controllers\\admindashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\controllers\\adminbookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\controllers\\adminbookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\controllers\\adminslotmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\controllers\\adminslotmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\controllers\\adminusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\controllers\\adminusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -49,18 +61,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\controllers\\adminsingleuserdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\controllers\\adminsingleuserdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\db queries\\textfile.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|solutionrelative:turfmanagement\\db queries\\textfile.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{62692DCF-5757-4600-AE16-D8EFD9AFABC1}|turfmanagement\\turfmanagement.csproj|d:\\backend\\turfmanagement\\connection\\databaseconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -86,7 +86,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -94,44 +94,122 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\backend\\turfmanagement\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "turfmanagement\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\backend\\turfmanagement\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "turfmanagement\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwAwAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T05:46:18.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AdminDashboardController.cs",
+              "DocumentMoniker": "D:\\backend\\turfmanagement\\Controllers\\AdminDashboardController.cs",
+              "RelativeDocumentMoniker": "turfmanagement\\Controllers\\AdminDashboardController.cs",
+              "ToolTip": "D:\\backend\\turfmanagement\\Controllers\\AdminDashboardController.cs*",
+              "RelativeToolTip": "turfmanagement\\Controllers\\AdminDashboardController.cs*",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAUwMYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T06:13:37.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TextFile.txt",
+              "DocumentMoniker": "D:\\backend\\turfmanagement\\DB QUERIES\\TextFile.txt",
+              "RelativeDocumentMoniker": "turfmanagement\\DB QUERIES\\TextFile.txt",
+              "ToolTip": "D:\\backend\\turfmanagement\\DB QUERIES\\TextFile.txt",
+              "RelativeToolTip": "turfmanagement\\DB QUERIES\\TextFile.txt",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-06-20T04:54:20.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\backend\\turfmanagement\\appsettings.json",
+              "RelativeDocumentMoniker": "turfmanagement\\appsettings.json",
+              "ToolTip": "D:\\backend\\turfmanagement\\appsettings.json",
+              "RelativeToolTip": "turfmanagement\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-23T03:55:11.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\backend\\turfmanagement\\Program.cs",
+              "RelativeDocumentMoniker": "turfmanagement\\Program.cs",
+              "ToolTip": "D:\\backend\\turfmanagement\\Program.cs",
+              "RelativeToolTip": "turfmanagement\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T04:00:30.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BookingController.cs",
+              "DocumentMoniker": "D:\\backend\\turfmanagement\\Controllers\\BookingController.cs",
+              "RelativeDocumentMoniker": "turfmanagement\\Controllers\\BookingController.cs",
+              "ToolTip": "D:\\backend\\turfmanagement\\Controllers\\BookingController.cs",
+              "RelativeToolTip": "turfmanagement\\Controllers\\BookingController.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAiwHsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-20T10:02:25.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AdminSlotManagementController.cs",
+              "DocumentMoniker": "D:\\backend\\turfmanagement\\Controllers\\AdminSlotManagementController.cs",
+              "RelativeDocumentMoniker": "turfmanagement\\Controllers\\AdminSlotManagementController.cs",
+              "ToolTip": "D:\\backend\\turfmanagement\\Controllers\\AdminSlotManagementController.cs",
+              "RelativeToolTip": "turfmanagement\\Controllers\\AdminSlotManagementController.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwDcAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T06:35:55.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\backend\\turfmanagement\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "turfmanagement\\Properties\\launchSettings.json",
               "ToolTip": "D:\\backend\\turfmanagement\\Properties\\launchSettings.json",
               "RelativeToolTip": "turfmanagement\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAgwCgAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAQwCgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-06-26T10:25:50.03Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AdminUserController.cs",
-              "DocumentMoniker": "D:\\backend\\turfmanagement\\Controllers\\AdminUserController.cs",
-              "RelativeDocumentMoniker": "turfmanagement\\Controllers\\AdminUserController.cs",
-              "ToolTip": "D:\\backend\\turfmanagement\\Controllers\\AdminUserController.cs",
-              "RelativeToolTip": "turfmanagement\\Controllers\\AdminUserController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T06:49:55.234Z"
+              "DocumentIndex": 8,
+              "Title": "turfmanagement",
+              "DocumentMoniker": "D:\\backend\\turfmanagement\\turfmanagement.csproj",
+              "RelativeDocumentMoniker": "turfmanagement\\turfmanagement.csproj",
+              "ToolTip": "D:\\backend\\turfmanagement\\turfmanagement.csproj",
+              "RelativeToolTip": "turfmanagement\\turfmanagement.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-23T03:59:51.021Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "BookingController.cs",
-              "DocumentMoniker": "D:\\backend\\turfmanagement\\Controllers\\BookingController.cs",
-              "RelativeDocumentMoniker": "turfmanagement\\Controllers\\BookingController.cs",
-              "ToolTip": "D:\\backend\\turfmanagement\\Controllers\\BookingController.cs",
-              "RelativeToolTip": "turfmanagement\\Controllers\\BookingController.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAUwFgAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-20T10:02:25.871Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "AdminBookingController.cs",
               "DocumentMoniker": "D:\\backend\\turfmanagement\\Controllers\\AdminBookingController.cs",
               "RelativeDocumentMoniker": "turfmanagement\\Controllers\\AdminBookingController.cs",
@@ -143,56 +221,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "D:\\backend\\turfmanagement\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "turfmanagement\\Controllers\\AdminController.cs",
-              "ToolTip": "D:\\backend\\turfmanagement\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "turfmanagement\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "AdminUserController.cs",
+              "DocumentMoniker": "D:\\backend\\turfmanagement\\Controllers\\AdminUserController.cs",
+              "RelativeDocumentMoniker": "turfmanagement\\Controllers\\AdminUserController.cs",
+              "ToolTip": "D:\\backend\\turfmanagement\\Controllers\\AdminUserController.cs",
+              "RelativeToolTip": "turfmanagement\\Controllers\\AdminUserController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T05:46:18.118Z"
+              "WhenOpened": "2025-06-22T06:49:55.234Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AdminDashboardController.cs",
-              "DocumentMoniker": "D:\\backend\\turfmanagement\\Controllers\\AdminDashboardController.cs",
-              "RelativeDocumentMoniker": "turfmanagement\\Controllers\\AdminDashboardController.cs",
-              "ToolTip": "D:\\backend\\turfmanagement\\Controllers\\AdminDashboardController.cs",
-              "RelativeToolTip": "turfmanagement\\Controllers\\AdminDashboardController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T06:13:37.899Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "turfmanagement",
-              "DocumentMoniker": "D:\\backend\\turfmanagement\\turfmanagement.csproj",
-              "RelativeDocumentMoniker": "turfmanagement\\turfmanagement.csproj",
-              "ToolTip": "D:\\backend\\turfmanagement\\turfmanagement.csproj",
-              "RelativeToolTip": "turfmanagement\\turfmanagement.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-23T03:59:51.021Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AdminSlotManagementController.cs",
-              "DocumentMoniker": "D:\\backend\\turfmanagement\\Controllers\\AdminSlotManagementController.cs",
-              "RelativeDocumentMoniker": "turfmanagement\\Controllers\\AdminSlotManagementController.cs",
-              "ToolTip": "D:\\backend\\turfmanagement\\Controllers\\AdminSlotManagementController.cs",
-              "RelativeToolTip": "turfmanagement\\Controllers\\AdminSlotManagementController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAYwDcAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T06:35:55.786Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\backend\\turfmanagement\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "turfmanagement\\Controllers\\UserController.cs",
@@ -204,7 +245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "SampleOtpController.cs",
               "DocumentMoniker": "D:\\backend\\turfmanagement\\Controllers\\SampleOtpController.cs",
               "RelativeDocumentMoniker": "turfmanagement\\Controllers\\SampleOtpController.cs",
@@ -216,7 +257,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "SlotsController.cs",
               "DocumentMoniker": "D:\\backend\\turfmanagement\\Controllers\\SlotsController.cs",
               "RelativeDocumentMoniker": "turfmanagement\\Controllers\\SlotsController.cs",
@@ -228,7 +269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "AdminSingleUserDetailsController.cs",
               "DocumentMoniker": "D:\\backend\\turfmanagement\\Controllers\\AdminSingleUserDetailsController.cs",
               "RelativeDocumentMoniker": "turfmanagement\\Controllers\\AdminSingleUserDetailsController.cs",
@@ -237,42 +278,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAIYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-24T05:23:52.287Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\backend\\turfmanagement\\appsettings.json",
-              "RelativeDocumentMoniker": "turfmanagement\\appsettings.json",
-              "ToolTip": "D:\\backend\\turfmanagement\\appsettings.json",
-              "RelativeToolTip": "turfmanagement\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-23T03:55:11.793Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\backend\\turfmanagement\\Program.cs",
-              "RelativeDocumentMoniker": "turfmanagement\\Program.cs",
-              "ToolTip": "D:\\backend\\turfmanagement\\Program.cs",
-              "RelativeToolTip": "turfmanagement\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T04:00:30.638Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "TextFile.txt",
-              "DocumentMoniker": "D:\\backend\\turfmanagement\\DB QUERIES\\TextFile.txt",
-              "RelativeDocumentMoniker": "turfmanagement\\DB QUERIES\\TextFile.txt",
-              "ToolTip": "D:\\backend\\turfmanagement\\DB QUERIES\\TextFile.txt",
-              "RelativeToolTip": "turfmanagement\\DB QUERIES\\TextFile.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-06-20T04:54:20.192Z"
             },
             {
               "$type": "Document",

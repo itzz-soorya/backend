@@ -11,142 +11,188 @@ namespace turfmanagement.Controllers
     public class AdminDashboardController : ControllerBase
     {
         private readonly DatabaseConnection _db;
+        private static readonly string[] MonthNames = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
+        private static readonly string[] Colors = {
+            "#FF5733", "#33C1FF", "#FFC300", "#DAF7A6", "#C70039", "#900C3F",
+            "#581845", "#4CAF50", "#FF9800", "#3F51B5", "#E91E63", "#795548"
+        };
 
         public AdminDashboardController(DatabaseConnection db)
         {
             _db = db;
         }
 
-        
-         [HttpGet("dashboard")]
-
-        public IActionResult GetDashboard()
+        [HttpGet("year")]
+        public IActionResult GetYearlyStats([FromQuery] int year)
         {
-            using var conn = _db.GetConnection();
-            conn.Open();
+            var result = new List<MonthBookingData>();
+            int totalBookings = 0;
+            int totalHours = 0;
 
-            var result = new DashboardResult();
-            var monthData = new List<MonthBookingData>();
-
-            string[] monthNames = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-            string[] colors = {
-                "#FF5733", "#33C1FF", "#FFC300", "#DAF7A6", "#C70039", "#900C3F",
-                "#581845", "#4CAF50", "#FF9800", "#3F51B5", "#E91E63", "#795548"
-            };
-
-            // 1. Get booking count per month
-            string monthQuery = @"
-                SELECT EXTRACT(MONTH FROM BookingDate) AS month, COUNT(*) AS count
-                FROM Bookings
-                GROUP BY month;
-            ";
-
-            using (var cmd = new NpgsqlCommand(monthQuery, conn))
-            using (var reader = cmd.ExecuteReader())
+            try
             {
-                var monthCounts = new Dictionary<int, int>();
+                using var conn = _db.GetConnection();
+                conn.Open();
+
+                string query = @"
+                    SELECT 
+                        EXTRACT(MONTH FROM BookingDate) AS month,
+                        COUNT(*) AS count,
+                        SUM(EXTRACT(HOUR FROM AGE(to_timestamp(SlotTimeTo, 'HH12:MI AM'), to_timestamp(SlotTimeFrom, 'HH12:MI AM')))) AS hours
+                    FROM Bookings
+                    WHERE EXTRACT(YEAR FROM BookingDate) = @year
+                    GROUP BY month
+                    ORDER BY month;
+                ";
+
+                using var cmd = new NpgsqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@year", year);
+
+                using var reader = cmd.ExecuteReader();
+                var counts = new Dictionary<int, (int count, int hours)>();
+
                 while (reader.Read())
                 {
-                    int month = (int)(reader.GetDouble(0)); // PostgreSQL EXTRACT returns double
-                    int count = reader.GetInt32(1);
-                    monthCounts[month] = count;
+                    int month = Convert.ToInt32(reader["month"]);
+                    int count = Convert.ToInt32(reader["count"]);
+                    int hours = Convert.ToInt32(reader["hours"]);
+
+                    totalBookings += count;
+                    totalHours += hours;
+                    counts[month] = (count, hours);
                 }
 
                 for (int i = 1; i <= 12; i++)
                 {
-                    monthData.Add(new MonthBookingData
+                    result.Add(new MonthBookingData
                     {
-                        Month = monthNames[i - 1],
-                        Bookings = monthCounts.ContainsKey(i) ? monthCounts[i] : 0,
-                        Color = colors[i - 1]
+                        Label = MonthNames[i - 1],
+                        Bookings = counts.ContainsKey(i) ? counts[i].count : 0,
+                        Hours = counts.ContainsKey(i) ? counts[i].hours : 0,
+                        Color = Colors[i - 1]
                     });
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("❌ Error in GetYearlyStats: " + ex.Message);
+                return StatusCode(500, new { message = "Failed to fetch yearly stats." });
+            }
 
-            result.BookingData = monthData;
+            return Ok(new { totalBookings, totalHours, data = result });
+        }
 
-            // 2. Get today / past / upcoming counts
-            string todayQuery = "SELECT COUNT(*) FROM Bookings WHERE BookingDate = CURRENT_DATE";
-            string upcomingQuery = "SELECT COUNT(*) FROM Bookings WHERE BookingDate > CURRENT_DATE";
-            string pastQuery = "SELECT COUNT(*) FROM Bookings WHERE BookingDate < CURRENT_DATE";
+        [HttpGet("month")]
+        public IActionResult GetMonthlyStats([FromQuery] int month, [FromQuery] int year)
+        {
+            var result = new List<DayBookingData>();
+            int totalBookings = 0;
+            int totalHours = 0;
 
-            using (var cmd = new NpgsqlCommand(todayQuery, conn))
-                result.Today = Convert.ToInt32(cmd.ExecuteScalar());
+            try
+            {
+                using var conn = _db.GetConnection();
+                conn.Open();
 
-            using (var cmd = new NpgsqlCommand(upcomingQuery, conn))
-                result.Upcoming = Convert.ToInt32(cmd.ExecuteScalar());
+                string query = @"
+                    SELECT 
+                        EXTRACT(DAY FROM BookingDate) AS day,
+                        COUNT(*) AS count,
+                        SUM(EXTRACT(HOUR FROM AGE(to_timestamp(SlotTimeTo, 'HH12:MI AM'), to_timestamp(SlotTimeFrom, 'HH12:MI AM')))) AS hours
+                    FROM Bookings
+                    WHERE EXTRACT(MONTH FROM BookingDate) = @month AND EXTRACT(YEAR FROM BookingDate) = @year
+                    GROUP BY day
+                    ORDER BY day;
+                ";
 
-            using (var cmd = new NpgsqlCommand(pastQuery, conn))
-                result.Past = Convert.ToInt32(cmd.ExecuteScalar());
+                using var cmd = new NpgsqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@month", month);
+                cmd.Parameters.AddWithValue("@year", year);
 
-            return Ok(result);
+                using var reader = cmd.ExecuteReader();
+                var counts = new Dictionary<int, (int count, int hours)>();
+
+                while (reader.Read())
+                {
+                    int day = Convert.ToInt32(reader["day"]);
+                    int count = Convert.ToInt32(reader["count"]);
+                    int hours = Convert.ToInt32(reader["hours"]);
+
+                    totalBookings += count;
+                    totalHours += hours;
+                    counts[day] = (count, hours);
+                }
+
+                for (int i = 1; i <= 31; i++)
+                {
+                    if (counts.ContainsKey(i))
+                    {
+                        result.Add(new DayBookingData
+                        {
+                            Day = i,
+                            Bookings = counts[i].count,
+                            Hours = counts[i].hours
+                        });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("❌ Error in GetMonthlyStats: " + ex.Message);
+                return StatusCode(500, new { message = "Failed to fetch monthly stats." });
+            }
+
+            return Ok(new { totalBookings, totalHours, data = result });
+        }
+
+        [HttpGet("summary")]
+        public IActionResult GetSummary()
+        {
+            var summary = new CountSummary();
+
+            try
+            {
+                using var conn = _db.GetConnection();
+                conn.Open();
+
+                using (var cmd = new NpgsqlCommand("SELECT COUNT(*) FROM Bookings WHERE BookingDate = CURRENT_DATE", conn))
+                    summary.Today = Convert.ToInt32(cmd.ExecuteScalar());
+
+                using (var cmd = new NpgsqlCommand("SELECT COUNT(*) FROM Bookings WHERE BookingDate > CURRENT_DATE", conn))
+                    summary.Upcoming = Convert.ToInt32(cmd.ExecuteScalar());
+
+                using (var cmd = new NpgsqlCommand("SELECT COUNT(*) FROM Bookings WHERE BookingDate < CURRENT_DATE", conn))
+                    summary.Past = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("❌ Error in GetSummary: " + ex.Message);
+                return StatusCode(500, new { message = "Failed to fetch summary data." });
+            }
+
+            return Ok(summary);
+        }
+
+        public class MonthBookingData
+        {
+            public string Label { get; set; }  // Jan, Feb, etc.
+            public int Bookings { get; set; }
+            public int Hours { get; set; }
+            public string Color { get; set; }
+        }
+
+        public class DayBookingData
+        {
+            public int Day { get; set; }
+            public int Bookings { get; set; }
+            public int Hours { get; set; }
+        }
+
+        public class CountSummary
+        {
+            public int Today { get; set; }
+            public int Upcoming { get; set; }
+            public int Past { get; set; }
         }
     }
-
-    // DTOs
-
-    public class DashboardResult
-    {
-        public List<MonthBookingData> BookingData { get; set; }
-        public int Today { get; set; }
-        public int Upcoming { get; set; }
-        public int Past { get; set; }
-    }
-
-    public class MonthBookingData
-    {
-        public string Month { get; set; }
-        public int Bookings { get; set; }
-        public string Color { get; set; }
-    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
