@@ -102,8 +102,7 @@
               "RelativeToolTip": "turfmanagement\\Controllers\\AdminController.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAAwAwAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T05:46:18.118Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T05:46:18.118Z"
             },
             {
               "$type": "Document",
@@ -111,9 +110,9 @@
               "Title": "AdminDashboardController.cs",
               "DocumentMoniker": "D:\\backend\\turfmanagement\\Controllers\\AdminDashboardController.cs",
               "RelativeDocumentMoniker": "turfmanagement\\Controllers\\AdminDashboardController.cs",
-              "ToolTip": "D:\\backend\\turfmanagement\\Controllers\\AdminDashboardController.cs*",
-              "RelativeToolTip": "turfmanagement\\Controllers\\AdminDashboardController.cs*",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAUwMYAAAAAAAAAAAAAAA==",
+              "ToolTip": "D:\\backend\\turfmanagement\\Controllers\\AdminDashboardController.cs",
+              "RelativeToolTip": "turfmanagement\\Controllers\\AdminDashboardController.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAUwMkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-22T06:13:37.899Z",
               "EditorCaption": ""
@@ -128,8 +127,7 @@
               "RelativeToolTip": "turfmanagement\\DB QUERIES\\TextFile.txt",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-06-20T04:54:20.192Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-20T04:54:20.192Z"
             },
             {
               "$type": "Document",
@@ -141,8 +139,7 @@
               "RelativeToolTip": "turfmanagement\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-23T03:55:11.793Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T03:55:11.793Z"
             },
             {
               "$type": "Document",
@@ -154,8 +151,7 @@
               "RelativeToolTip": "turfmanagement\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T04:00:30.638Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T04:00:30.638Z"
             },
             {
               "$type": "Document",
@@ -167,8 +163,7 @@
               "RelativeToolTip": "turfmanagement\\Controllers\\BookingController.cs",
               "ViewState": "AgIAAEoAAAAAAAAAAAAiwHsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-20T10:02:25.871Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-20T10:02:25.871Z"
             },
             {
               "$type": "Document",
@@ -180,8 +175,7 @@
               "RelativeToolTip": "turfmanagement\\Controllers\\AdminSlotManagementController.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAYwDcAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-22T06:35:55.786Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-22T06:35:55.786Z"
             },
             {
               "$type": "Document",
@@ -193,8 +187,7 @@
               "RelativeToolTip": "turfmanagement\\Properties\\launchSettings.json",
               "ViewState": "AgIAABQAAAAAAAAAAAAQwCgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-26T10:25:50.03Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-26T10:25:50.03Z"
             },
             {
               "$type": "Document",
