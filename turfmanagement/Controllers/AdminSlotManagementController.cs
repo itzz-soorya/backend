@@ -71,7 +71,7 @@ namespace turfmanagement.Controllers
             return Ok(new { message = "Selected slots marked as Maintenance." });
         }
 
-        [HttpDelete("delete-maintanence")]
+        [HttpPost("delete-maintanence")]
         public IActionResult DeleteSlot([FromBody] SlotMaintenanceRequest request)
         {
             if (request.TimeSlots == null || request.TimeSlots.Count == 0)
@@ -95,6 +95,7 @@ namespace turfmanagement.Controllers
 
             return Ok(new { message = "Selected slots deleted successfully." });
         }
+
 
     }
 
