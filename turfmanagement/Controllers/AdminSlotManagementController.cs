@@ -99,6 +99,7 @@ namespace turfmanagement.Controllers
 
             int totalDeleted = 0;
 
+
             foreach (var timeRaw in request.TimeSlots)
             {
                 string time = NormalizeToSlotFormat(timeRaw);

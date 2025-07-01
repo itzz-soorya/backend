@@ -157,6 +157,7 @@ namespace turfmanagement.Controllers
                 using var conn = _db.GetConnection();
                 conn.Open();
 
+                // Count Bookings
                 using (var cmd = new NpgsqlCommand("SELECT COUNT(*) FROM Bookings WHERE BookingDate = CURRENT_DATE", conn))
                     summary.Today = Convert.ToInt32(cmd.ExecuteScalar());
 
@@ -165,6 +166,16 @@ namespace turfmanagement.Controllers
 
                 using (var cmd = new NpgsqlCommand("SELECT COUNT(*) FROM Bookings WHERE BookingDate < CURRENT_DATE", conn))
                     summary.Past = Convert.ToInt32(cmd.ExecuteScalar());
+
+                // Total Hours (assuming 1 hour per time slot and time_slots is a JSON array)
+                using (var cmd = new NpgsqlCommand("SELECT COALESCE(SUM(jsonb_array_length(time_slots::jsonb)), 0) FROM Bookings WHERE BookingDate = CURRENT_DATE", conn))
+                    summary.TodayHours = Convert.ToInt32(cmd.ExecuteScalar());
+
+                using (var cmd = new NpgsqlCommand("SELECT COALESCE(SUM(jsonb_array_length(time_slots::jsonb)), 0) FROM Bookings WHERE BookingDate > CURRENT_DATE", conn))
+                    summary.UpcomingHours = Convert.ToInt32(cmd.ExecuteScalar());
+
+                using (var cmd = new NpgsqlCommand("SELECT COALESCE(SUM(jsonb_array_length(time_slots::jsonb)), 0) FROM Bookings WHERE BookingDate < CURRENT_DATE", conn))
+                    summary.PastHours = Convert.ToInt32(cmd.ExecuteScalar());
             }
             catch (Exception ex)
             {
@@ -173,6 +184,8 @@ namespace turfmanagement.Controllers
             }
 
             return Ok(summary);
+        }
+ 
         }
 
         // DTOs
@@ -196,6 +209,11 @@ namespace turfmanagement.Controllers
             public int Today { get; set; }
             public int Upcoming { get; set; }
             public int Past { get; set; }
+
+
+            public int TodayHours { get; set; }
+            public int UpcomingHours { get; set; }
+            public int PastHours { get; set; }
         }
     }
-}
+

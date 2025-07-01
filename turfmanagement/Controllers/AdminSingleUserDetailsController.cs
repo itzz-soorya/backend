@@ -54,8 +54,8 @@ namespace turfmanagement.Controllers
                 PhoneNumber = reader["PhoneNumber"].ToString(),
                 TotalBookings = Convert.ToInt32(reader["TotalBookings"]),
                 LastBooking = lastBookingDate == null ? "N/A" : lastBookingDate.Value.ToString("dd/MM/yyyy"),
-                UpcomingBookings = new List<BookingDto>(),
-                PastBookings = new List<BookingDto>()
+                UpcomingBookings = new List<UserBookingDto>(),
+                PastBookings = new List<UserBookingDto>()
             };
             reader.Close();
 
@@ -80,7 +80,7 @@ namespace turfmanagement.Controllers
                 var from = bookingsReader["SlotTimeFrom"].ToString();
                 var to = bookingsReader["SlotTimeTo"].ToString();
 
-                var dto = new BookingDto
+                var dto = new UserBookingDto
                 {
                     Date = bookingDate.ToString("dd/MM/yyyy"),
                     TimeFrom = from,
@@ -103,7 +103,6 @@ namespace turfmanagement.Controllers
                         user.PastBookings.Add(dto);
                     else if (startTime > now)
                         user.UpcomingBookings.Add(dto);
-                    // optional: handle ongoing booking if needed
                 }
             }
             bookingsReader.Close();
@@ -121,11 +120,12 @@ namespace turfmanagement.Controllers
         public int TotalBookings { get; set; }
         public string LastBooking { get; set; }
         public string TotalHours { get; set; }
-        public List<BookingDto> UpcomingBookings { get; set; }
-        public List<BookingDto> PastBookings { get; set; }
+
+        public List<UserBookingDto> UpcomingBookings { get; set; }
+        public List<UserBookingDto> PastBookings { get; set; }
     }
 
-    public class BookingDto
+    public class UserBookingDto
     {
         public string Date { get; set; }
         public string TimeFrom { get; set; }
